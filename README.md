@@ -1,4 +1,5 @@
 # Workshop ROS 2 Jazzy: do TurtleBot3 ao mapeamento autônomo em C++
+*# PS: Este é um fork para o Grupo ID 88*
 
 Em 3 aulas de 2 h, você vai escrever nós C++ para o ROS 2, construir no Gazebo um robô próprio com lidar, IMU e odometria, e fazê-lo mapear uma sala sozinho com o Cartographer, seguindo um percurso definido por você.
 
