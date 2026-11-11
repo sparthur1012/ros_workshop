@@ -102,7 +102,7 @@ Você precisa de um Linux com [Docker Engine](https://docs.docker.com/engine/ins
 3. Suba o contêiner com um `ROS_DOMAIN_ID` **único por computador**, por exemplo o número da sua bancada (de 1 a 100):
 
    ```bash
-   ROS_DOMAIN_ID=12 docker compose -f docker/docker-compose.yaml up -d
+   ROS_DOMAIN_ID=88 docker compose -f docker/docker-compose.yaml up -d
    ```
 
    Com GPU NVIDIA, acrescente o segundo arquivo: `docker compose -f docker/docker-compose.yaml -f docker/docker-compose.nvidia.yaml up -d`.
