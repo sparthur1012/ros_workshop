@@ -47,6 +47,13 @@ RUN apt-get update && apt-get install -y \
     ros-jazzy-tf2-tools \
     ros-jazzy-xacro \
     ros-jazzy-joint-state-publisher-gui \
+    ros-jazzy-cv-bridge \
+    ros-jazzy-message-filters \
+    ros-jazzy-vision-msgs \
+    ros-jazzy-image-transport \
+    ros-jazzy-rqt-image-view \
+    libopencv-dev \
+    python3-opencv \
     && rm -rf /var/lib/apt/lists/*
 
 ENV TURTLEBOT3_MODEL=burger
