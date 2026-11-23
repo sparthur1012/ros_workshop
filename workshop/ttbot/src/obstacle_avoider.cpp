@@ -53,8 +53,22 @@ private:
     //   - ângulo do raio i: scan.angle_min + i * scan.angle_increment
     //   - o lidar do TurtleBot3 vai de 0 a 2*pi: normalize com atan2(sin(a), cos(a))
     //   - leitura válida: std::isfinite(r) e range_min <= r <= range_max
-    (void)half_cone;  // remova estas duas linhas quando usar half_cone e scan
-    (void)scan;
+    for (size_t i = 0; i < scan.ranges.size(); ++i) {
+     double angle = scan.angle_min + i * scan.angle_increment; // Calcula o ângulo do raio atual
+     angle = std::atan2(std::sin(angle), std::cos(angle));     // Normaliza o ângulo para o intervalo
+
+      if (std::abs(angle) <= half_cone) { // Verifica se está dentro do cone frontal
+        float r = scan.ranges[i];
+        if (std::isfinite(r) && r >= scan.range_min && r <= scan.range_max) { // Verifica se a leitura é válida
+          if (r < min_dist) {// Atualiza a menor distância
+            min_dist = r;
+          }
+        }
+      }
+    }
+    
+    // (void)half_cone;  // remova estas duas linhas quando usar half_cone e scan
+    // (void)scan;
 
     geometry_msgs::msg::Twist cmd;
     // TODO 4: se min_dist < safe_distance_, girar no lugar (cmd.angular.z);
