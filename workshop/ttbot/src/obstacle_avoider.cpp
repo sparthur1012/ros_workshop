@@ -34,7 +34,13 @@ public:
     }
     // TODO 2: assinar "scan" (sensor_msgs::msg::LaserScan) com QoS de sensor,
     //   rclcpp::SensorDataQoS(), chamando on_scan(*msg) no callback (use uma lambda).
-    
+    sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>( // criar assinador (subscriber)
+      "scan", rclcpp::SensorDataQoS(),                             // evitar acumulo de mensagens
+      [this](const sensor_msgs::msg::LaserScan & msg) {            // lambda
+        this->on_scan(msg);
+      }
+    );
+
   }
 
 private:
