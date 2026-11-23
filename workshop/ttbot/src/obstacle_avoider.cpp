@@ -27,9 +27,14 @@ public:
     // TODO 1: criar o publisher de "cmd_vel".
     //   Se use_stamped_ for true, crie pub_stamped_ (geometry_msgs::msg::TwistStamped);
     //   senão, crie pub_ (geometry_msgs::msg::Twist). Fila de 10 mensagens.
-
+    if (use_stamped_) {    // Se use_stamped_ for true 
+    pub_stamped_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("cmd_vel", 10);
+    } else {               // Se use_stamped_ for false
+    pub_ = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
+    }
     // TODO 2: assinar "scan" (sensor_msgs::msg::LaserScan) com QoS de sensor,
     //   rclcpp::SensorDataQoS(), chamando on_scan(*msg) no callback (use uma lambda).
+    
   }
 
 private:
