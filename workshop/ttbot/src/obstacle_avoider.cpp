@@ -73,7 +73,15 @@ private:
     geometry_msgs::msg::Twist cmd;
     // TODO 4: se min_dist < safe_distance_, girar no lugar (cmd.angular.z);
     //   senão, andar para frente (cmd.linear.x).
-    (void)min_dist;   // remova esta linha quando usar min_dist
+    if (min_dist < safe_distance_) { // Obstáculo perto: gira no lugar
+      cmd.linear.x = 0.0;
+      cmd.angular.z = turn_speed_;
+    } else { // Caminho livre: anda para frente
+      cmd.linear.x = max_speed_;
+      cmd.angular.z = 0.0;
+    }
+
+    // (void)min_dist;   // remova esta linha quando usar min_dist
 
     publish(cmd);
   }
