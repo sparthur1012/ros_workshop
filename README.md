@@ -98,7 +98,7 @@ No Windows, siga antes a seção [Alunos com Windows](#alunos-com-windows). Voc�
 1. Clone o repositório e libere as janelas gráficas para o Docker. Se for trabalhar em mais de um computador (em casa e na faculdade), clone o seu fork no lugar deste: veja [Trabalhando de casa e na faculdade](#trabalhando-de-casa-e-na-faculdade).
 
    ```bash
-   git clone https://github.com/gustavorvillela/ros_workshop.git
+   git clone git@github.com:sparthur1012/ros_workshop.git
    cd ros_workshop
    xhost +local:docker
    ```
