@@ -38,12 +38,12 @@ def generate_launch_description():
         executable='create',
         arguments=[
             '-topic', '/robot_description',
-            '-name', 'Cleber',
+            '-name', 'robo',
             '-z', '0.45'
         ],
         output='screen'
     )
-    spawn = None
+    # spawn = None
 
     # TODO 2: nó 'parameter_bridge' do pacote ros_gz_bridge.
     #   - parâmetro config_file apontando para config/bridge.yaml deste pacote (gazebo_pkg)
@@ -57,6 +57,6 @@ def generate_launch_description():
         }],
         output='screen'
     )
-    bridge = None
+    # bridge = None
 
     return LaunchDescription([gz, rsp, spawn, bridge])
