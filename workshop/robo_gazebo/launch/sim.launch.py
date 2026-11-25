@@ -48,6 +48,15 @@ def generate_launch_description():
     # TODO 2: nó 'parameter_bridge' do pacote ros_gz_bridge.
     #   - parâmetro config_file apontando para config/bridge.yaml deste pacote (gazebo_pkg)
     #   - use_sim_time ligado, como no rsp acima
+    bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        parameters=[{
+            'config_file': os.path.join(gazebo_pkg, 'config', 'bridge.yaml'),
+            'use_sim_time': True
+        }],
+        output='screen'
+    )
     bridge = None
 
     return LaunchDescription([gz, rsp, spawn, bridge])
